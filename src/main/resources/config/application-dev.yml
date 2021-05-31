@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+  servlet:
+    context-path: /ReadBooks
+#-----------------------------------------------------------------------------
+#log4j2配置文件
+logging:
+  config: classpath:config/log4j2.xml
+
+#-----------------------------------------------------------------------------
+#email配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver #com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/Books?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 521123
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.gwf.book.entity
+
+#  mail:
+#    #smtp服务主机  qq邮箱则为smtp.qq.com
+#    host: smtp.163.com
+#    #服务协议
+#    protocol: smtp
+#    # 编码集
+#    default-encoding: UTF-8
+#    #发送邮件的账户
+#    username: 18238621523@163.com
+#    #授权码
+#    password: KJKQKLXMJJJZDJAX
+#    test-connection: true
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#            required: true
