@@ -1,7 +1,10 @@
 package com.gwf.book.controller.Imp;
 
 import com.gwf.book.controller.FileController;
+import com.gwf.book.service.FileService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,11 +20,18 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 public class FileControllerImp implements FileController {
+    @Autowired
+    private FileService fileService;
     @ResponseBody
     @RequestMapping("/uploadfile")
-    public void uploadFile(@RequestParam(value = "myFileName", required = false) MultipartFile cardFile,
+    public void uploadFile(@RequestParam(value = "bookfile", required = false) MultipartFile cardFile,
                            HttpServletRequest request, HttpServletResponse response){
-        System.out.println("文件上传");
+
+        fileService.uploadFile( cardFile, request,  response);
+
+
+
+
     }
 
     @RequestMapping("/uploadhtml")
